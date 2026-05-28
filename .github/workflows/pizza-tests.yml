@@ -44,13 +44,11 @@ jobs:
         working-directory: ./e2e-tests
         run: npm install
 
-      - name: 🌐 Install Playwright System Dependencies (Linux)
+      - name: 🌐 Install Playwright Browsers & System Dependencies
         working-directory: ./e2e-tests
-        run: sudo npx playwright install-deps chromium
-
-      - name: 🌐 Install Playwright Chromium Browser
-        working-directory: ./e2e-tests
-        run: npx playwright install chromium
+        run: |
+          npx playwright install chromium
+          npx playwright install-deps chromium
 
       # Passo 3: Esperar as duas portas (3000 da API e 5173 do Site) estarem online!
       - name: ⏳ Wait for Servers to be Ready
