@@ -25,21 +25,7 @@ Priscila, this is your safe harbor! No need to memorize anything. Whenever you f
 
 ---
 
-## 🌲 3. Running Cypress Tests
-1.  Open a terminal.
-2.  Type: `cd cypress-tests`
-3.  Type: `npx cypress run`
-
----
-
-## 🌐 4. Running Selenium Tests
-1.  Open a terminal.
-2.  Type: `cd selenium-tests`
-3.  Type: `node pizza-order.spec.js`
-
----
-
-## 📈 5. Running K6 Performance Tests
+## 📈 3. Running K6 Performance Tests
 1.  Open a terminal.
 2.  Type: `k6 run performance-tests/pizza-load-test.js`
 *   *(Alternative if K6 is not in PATH):*

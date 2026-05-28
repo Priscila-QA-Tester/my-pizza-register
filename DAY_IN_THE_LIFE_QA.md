@@ -73,7 +73,7 @@ You found an API bug (flavor not mandatory). Now you need to document it profess
 
 ## 🤖 PHASE 5: Creating the Automated Test (E2E & Assertions)
 
-To guarantee that this bug never returns after the developer fixes it, you create an automated E2E (End-to-End) test using Playwright, Cypress, or Selenium.
+To guarantee that this bug never returns after the developer fixes it, you create an automated E2E (End-to-End) test using Playwright.
 
 In your automation script, you write **Assertions** (Checks):
 
@@ -81,14 +81,6 @@ In your automation script, you write **Assertions** (Checks):
     *   **In Playwright:**
         ```typescript
         await expect(page.locator('#success-message')).toBeVisible();
-        ```
-    *   **In Cypress:**
-        ```javascript
-        cy.get('#success-message').should('be.visible');
-        ```
-    *   **In Selenium:**
-        ```javascript
-        assert.strictEqual(summaryName, 'Priscila da Silva');
         ```
 
 If the assertion matches, the test **Passes (Green)**. If the success screen doesn't show up or the name is different, the test **Fails (Red)** and the robot flags a bug!

@@ -1,6 +1,6 @@
 # 📝 Test Cases Guide - QA Lab
 
-Welcome to your QA Testing Lab! This guide contains the **Test Cases (TC)** that you will use to practice manual testing and compare the three biggest automation frameworks in the market: **Playwright**, **Cypress**, and **Selenium**.
+Welcome to your QA Testing Lab! This guide contains the **Test Cases (TC)** that you will use to practice manual testing and automate using **Playwright**.
 
 ---
 
@@ -65,21 +65,7 @@ The website consists of two main parts:
 *   **Actual Result (The Bug!):** The API accepts the order, responds with `201 Created`, and saves the flavorless pizza in the SQLite database!
 *   **QA Action:** Report this bug in Jira.
 
----
-
-## ⚔️ Automation Comparison: How does each tool run TC001?
-
-| Action in Test | Playwright | Cypress | Selenium (Node) |
-| :--- | :--- | :--- | :--- |
-| **Access Website** | `await page.goto('/');` | `cy.visit('/');` | `await driver.get('http://localhost:5173');` |
-| **Type Text** | `await page.fill('#customerName', '...');` | `cy.get('#customerName').type('...');` | `await driver.findElement(By.id('customerName')).sendKeys('...');` |
-| **Select Dropdown** | `await page.selectOption('#pizzaFlavor', '...');` | `cy.get('#pizzaFlavor').select('...');` | `await driver.findElement(...).click();` |
-| **Click Element** | `await page.click('#submitOrderBtn');` | `cy.get('#submitOrderBtn').click();` | `await driver.findElement(By.id('submitOrderBtn')).click();` |
-| **Validate Visibility** | `await expect(locator).toBeVisible();` | `cy.get('#success-message').should('be.visible');` | `await driver.wait(until.elementIsVisible(...));` |
-
----
-
 ## 🎓 Tips for Training:
 1.  **Explore Manually first:** Before automating, open the site and click on everything. Try to break the site!
 2.  **Study Selectors:** Open Inspect Element (F12) in Chrome and inspect the IDs (`#customerName`, `#submitPaymentBtn`). They are the "anchors" of your automation robots.
-3.  **Compare Speeds:** Observe how Playwright and Cypress are extremely fast compared to classical Selenium.
+3.  **Observe Playwright's Speed:** Notice how fast Playwright runs the E2E tests in a fraction of a second.

@@ -66,7 +66,7 @@ Understanding this architecture defines how you test:
 
 | What do you want to test? | Where do you point your test? | Recommended Tools |
 |---|---|---|
-| **Screens & User Flows (E2E)** | Frontend port (`localhost:5173`) | Playwright / Cypress / Selenium |
+| **Screens & User Flows (E2E)** | Frontend port (`localhost:5173`) | Playwright |
 | **Data & Core Logic (APIs)** | Backend port (`localhost:3000`) | Postman / Thunder Client / K6 |
 
 Now you know exactly what to say when a recruiter asks: *"Have you ever worked with separated Frontend and Backend services?"* 😉🎓🚀
