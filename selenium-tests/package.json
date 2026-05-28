@@ -1,0 +1,12 @@
+{
+  "name": "selenium-tests",
+  "version": "1.0.0",
+  "description": "Selenium E2E training tests",
+  "main": "pizza-order.spec.js",
+  "scripts": {
+    "test": "node pizza-order.spec.js"
+  },
+  "dependencies": {
+    "selenium-webdriver": "^4.22.0"
+  }
+}

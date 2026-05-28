@@ -1,0 +1,41 @@
+### Caminho Feliz (Happy Path)
+# Mandando um pedido completo. Deve retornar 201 Created.
+POST http://localhost:3000/api/orders
+Content-Type: application/json
+
+{
+  "customerName": "Priscila da Silva",
+  "flavor": "calabresa",
+  "size": "large"
+}
+
+###
+
+### Teste de Validação (Falta o Nome)
+# Mandando sem o customerName. Deve retornar 400 Bad Request.
+POST http://localhost:3000/api/orders
+Content-Type: application/json
+
+{
+  "flavor": "pepperoni",
+  "size": "medium"
+}
+
+###
+
+### O BUG ESCONDIDO (Falta o Sabor)
+# Mandando sem o Sabor (flavor). O que será que a API vai responder?
+POST http://localhost:3000/api/orders
+Content-Type: application/json
+
+{
+  "customerName": "João Tester",
+  "size": "small"
+}
+
+###
+
+### Ver o Banco de Dados (SQL Select)
+# Retorna todas as pizzas salvas no banco
+GET http://localhost:3000/api/orders
+

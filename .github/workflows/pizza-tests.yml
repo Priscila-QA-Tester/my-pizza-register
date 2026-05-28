@@ -1,0 +1,60 @@
+name: 🍕 Run Pizza System Tests
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  run-all-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Passo 1: Baixar o código do repositório
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      # Passo 2: Instalar o Node.js na nuvem
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # ---- PASSO A: CONFIGURAR O BACKEND ----
+      - name: 📦 Install Backend Dependencies
+        working-directory: ./backend-api
+        run: npm install
+
+      - name: 🚀 Start Backend API
+        working-directory: ./backend-api
+        run: node server.js &
+
+      # ---- PASSO B: CONFIGURAR O FRONTEND (APP) ----
+      - name: 📦 Install Frontend Dependencies
+        working-directory: ./app
+        run: npm install
+
+      - name: 🚀 Start Frontend App
+        working-directory: ./app
+        run: npm run dev &
+
+      # ---- PASSO C: CONFIGURAR OS TESTES E2E ----
+      - name: 📦 Install E2E Tests Dependencies
+        working-directory: ./e2e-tests
+        run: npm install
+
+      - name: 🌐 Install Playwright Browsers
+        working-directory: ./e2e-tests
+        run: npx playwright install --with-deps chromium
+
+      # Passo 3: Esperar as duas portas (3000 da API e 5173 do Site) estarem online!
+      - name: ⏳ Wait for Servers to be Ready
+        run: |
+          npx wait-on http://localhost:3000 --timeout 60000
+          npx wait-on http://localhost:5173 --timeout 60000
+
+      # Passo 4: Rodar os testes de Playwright
+      - name: 🧪 Run E2E Tests
+        working-directory: ./e2e-tests
+        run: npx playwright test

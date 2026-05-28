@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Antigravity Pizza - Orders</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+    <main class="container">
+      <div class="glass-panel">
+        <div class="nav-bar">
+          <div class="nav-logo">
+            <span class="logo-emoji">🍕</span>
+            <span class="logo-text">Antigravity Pizza</span>
+          </div>
+          <div class="nav-status">
+            <span class="status-dot"></span>
+            <span class="status-text">Aberto</span>
+          </div>
+        </div>
+        <header>
+          <h1><span class="floating-pizza">🍕</span> Place Your Order</h1>
+          <p>The best pizzas in the galaxy, straight to you.</p>
+          <div class="working-hours">
+            <span class="hours-icon">🕒</span>
+            <span class="hours-text">Mon: Closed | Tue to Sun: 12 PM - 11 PM (Delivery & Take Out Only)</span>
+          </div>
+          <img src="/pizza.png" alt="Mouth-watering Calabresa Pizza" class="pizza-banner">
+        </header>
+
+        <form id="pizza-form">
+          <div class="form-group">
+            <label for="customerName">Full Name</label>
+            <input type="text" id="customerName" name="customerName" placeholder="Ex: John Doe" required>
+          </div>
+
+          <div class="form-group">
+            <label for="pizzaFlavor">Pizza Flavor</label>
+            <select id="pizzaFlavor" name="pizzaFlavor" required>
+              <option value="" disabled selected>Select a flavor...</option>
+              <option value="margherita">Margherita</option>
+              <option value="pepperoni">Pepperoni</option>
+              <option value="four-cheese">Four Cheese</option>
+              <option value="chicken-catupiry">Chicken with Catupiry</option>
+              <option value="calabresa">Brazilian Calabresa</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Size</label>
+            <div class="radio-group">
+              <label class="radio-label">
+                <input type="radio" name="pizzaSize" value="small" required>
+                <span class="radio-custom"></span>
+                Small
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="pizzaSize" value="medium">
+                <span class="radio-custom"></span>
+                Medium
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="pizzaSize" value="large">
+                <span class="radio-custom"></span>
+                Large
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" id="submitOrderBtn" class="btn-primary">
+            <span>Checkout</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </form>
+
+        <form id="payment-form" class="hidden">
+          <h2>Delivery Details</h2>
+          <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Enter your delivery details and contact phone.</p>
+
+          <div class="form-group">
+            <label for="deliveryStreet">Street Address</label>
+            <input type="text" id="deliveryStreet" name="deliveryStreet" placeholder="Ex: Star Avenue" required>
+          </div>
+
+          <div style="display: flex; gap: 1rem;">
+            <div class="form-group" style="flex: 1;">
+              <label for="deliveryNumber">Number</label>
+              <input type="text" id="deliveryNumber" name="deliveryNumber" placeholder="Ex: 123" required>
+            </div>
+            <div class="form-group" style="flex: 2;">
+              <label for="deliveryNeighborhood">Neighborhood</label>
+              <input type="text" id="deliveryNeighborhood" name="deliveryNeighborhood" placeholder="Ex: Orbit City" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="contactPhone">Phone Number</label>
+            <input type="text" id="contactPhone" name="contactPhone" placeholder="Ex: (11) 99999-9999" required>
+          </div>
+
+          <button type="submit" id="submitPaymentBtn" class="btn-primary">
+            <span>Confirm Order</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="2" y1="10" x2="22" y2="10"></line>
+            </svg>
+          </button>
+        </form>
+
+        <div id="success-message" class="hidden">
+          <div class="success-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+          <h2>Order Confirmed!</h2>
+          <p>Your <span id="summary-size"></span> <span id="summary-flavor"></span> is being prepared, <span
+              id="summary-name"></span>!</p>
+          <button id="newOrderBtn" class="btn-secondary">Place New Order</button>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
