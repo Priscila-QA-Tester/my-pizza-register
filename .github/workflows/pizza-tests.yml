@@ -51,7 +51,7 @@ jobs:
           (cd app && npm run dev > ../frontend.log 2>&1) &
           
           echo "⏳ Esperando pelo Backend (porta 3000)..."
-          npx wait-on http://localhost:3000 --timeout 60000 || (echo "❌ Backend falhou em responder! Logs do Backend:" && cat backend.log && exit 1)
+          npx wait-on http://localhost:3000/api/orders --timeout 60000 || (echo "❌ Backend falhou em responder! Logs do Backend:" && cat backend.log && exit 1)
           
           echo "⏳ Esperando pelo Frontend (porta 5173)..."
           npx wait-on http://localhost:5173 --timeout 60000 || (echo "❌ Frontend falhou em responder! Logs do Frontend:" && cat frontend.log && exit 1)
