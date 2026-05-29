@@ -40,6 +40,7 @@ jobs:
       - name: 🌐 Install Playwright Browsers & System Dependencies
         working-directory: ./e2e-tests
         run: |
+          chmod -R +x ./node_modules/.bin
           npx playwright install chromium
           npx playwright install-deps chromium
 
