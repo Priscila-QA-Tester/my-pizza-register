@@ -16,3 +16,8 @@ cypress/videos/
 # Database
 *.db-journal
 pizza.db
+
+# Python
+venv/
+__pycache__/
+.pytest_cache/
