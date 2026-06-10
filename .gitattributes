@@ -1,0 +1,9 @@
+# Ignorar pastas da aplicação para as estatísticas de linguagem do GitHub
+# Isso faz com que o GitHub foque apenas nos nossos testes em Python!
+
+app/** linguist-vendored
+backend-api/** linguist-vendored
+*.html linguist-vendored
+*.css linguist-vendored
+*.js linguist-vendored
+*.ts linguist-vendored
